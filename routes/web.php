@@ -49,3 +49,10 @@ Route::post('/ruangadmin', [RuangadminController::class, 'store' ]);
 
 Route::put('/ruangadmin/{id}', [RuangadminController::class, 'update']);
 
+Route::resource('expense_categories', \App\Http\Controllers\Admin\ExpenseCategoryController::class);
+    Route::resource('income_categories', \App\Http\Controllers\Admin\IncomeCategoryController::class);
+    Route::resource('expenses', \App\Http\Controllers\Admin\ExpenseController::class);
+    Route::resource('incomes', \App\Http\Controllers\Admin\IncomeController::class);
+
+    Route::resource('monthly_reports', \App\Http\Controllers\Admin\MontlyReportController::class);
+
