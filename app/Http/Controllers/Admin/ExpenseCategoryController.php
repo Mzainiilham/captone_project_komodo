@@ -40,7 +40,7 @@ class ExpenseCategoryController extends Controller
     {
         ExpenseCategory::create($request->validated() + ['user_id' => auth()->id()]);
 
-        return redirect()->route('admin.expense_categories.index')->with([
+        return redirect()->route('expense_categories/index')->with([
             'message' => 'success created !',
             'alert-info' => 'success'
         ]);

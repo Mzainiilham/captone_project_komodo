@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('template.layout')
 
 @section('content')
     <div class="container">
@@ -8,7 +8,7 @@
                     {{ $expense_category->name }}
                 </h6>
                 <div class="ml-auto">
-                    <a href="{{ route('admin.expense_categories.index') }}" class="btn btn-primary">
+                    <a href="{{ url ('/expense_categories/index') }}" class="btn btn-primary">
                         <span class="text">Go Back</span>
                     </a>
                 </div>

@@ -1,66 +1,87 @@
-@extends('layouts.admin')
+@extends('admin.index')
 
 @section('content')
-   <div class="container">
-    <div class="card shadow mb-4">
-            <div class="card-header py-3 d-flex">
-                <h6 class="m-0 font-weight-bold text-primary">
-                    {{ __('Expense categories') }}
-                </h6>
-                <div class="ml-auto">
-                    <a href="{{ url ('admin.expense_categories.create') }}" class="btn btn-primary">
-                        <span class="icon text-white-50">
-                            <i class="fa fa-plus"></i>
-                        </span>
-                        <span class="text">{{ __('New') }}</span>
-                    </a>
+<div class="content-body">
+    <div class="page-wrapper">
+        <div class="container-fluid">
+            <div class="row page-titles">
+                <div class="col-md-5 align-self-center">
+                    <h4 class="text-themecolor mx-3"> <strong>Expense</strong> </h4>
                 </div>
-            </div>
-            <div class="table-responsive">
-                <table class="table table-hover table-bordered">
-                    <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Name</th>
-                        <th class="text-center" style="width: 30px;">Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @forelse($expense_categories as $expense_category)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td><a href="{{ url ('admin.expense_categories.show', $expense_category) }}">{{ $expense_category->name }}</a></td>
-                            <td>
-                                <div class="btn-group btn-group-sm">
-                                    <a href="{{ route('admin.expense_categories.edit', $expense_category) }}" class="btn btn-sm btn-primary">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                    <form onclick="return confirm('are you sure !')" action="{{ route('admin.expense_categories.destroy', $expense_category) }}"
-                                    method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-sm btn-danger" type="submit"><i class="fa fa-trash"></i></button>
-                                </form>
+
+                <div class="col-md-7 align-self-center text-right">
+                    <div class="d-flex justify-content-end align-items-center">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item active">Expense</li>
+                        </ol>
+                    </div>
+                </div>
+
+                    <div class="container">
+                        <div class="card shadow mb-4">
+                                <div class="card-header py-3 d-flex">
+                                    <h6 class="m-0 font-weight-bold text-primary">
+                                        {{ __('Expense categories') }}
+                                    </h6>
+                                    <div class="ml-auto">
+                                        <a href="{{ url ('/expense_categories/create') }}" class="btn btn-primary">
+                                            <span class="icon text-white-50">
+                                                <i class="fa fa-plus"></i>
+                                            </span>
+                                            <span class="text">{{ __('New') }}</span>
+                                        </a>
+                                    </div>
                                 </div>
-                            </td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td class="text-center" colspan="12">No expense categories found.</td>
-                        </tr>
-                    @endforelse
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="12">
-                                <div class="float-right">
-                                    {!! $expense_categories->appends(request()->all())->links() !!}
+                                <div class="table-responsive">
+                                    <table class="table table-hover table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Name</th>
+                                            <th class="text-center" style="width: 30px;">Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @forelse($expense_categories as $expense_category)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td><a href="{{ url ('/expense_categories/show', $expense_category) }}">{{ $expense_category->name }}</a></td>
+                                                <td>
+                                                    <div class="btn-group btn-group-sm">
+                                                        <a href="{{ route('admin.expense_categories.edit', $expense_category) }}" class="btn btn-sm btn-primary">
+                                                            <i class="fa fa-edit"></i>
+                                                        </a>
+                                                        <form onclick="return confirm('are you sure !')" action="{{ route('admin.expense_categories.destroy', $expense_category) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn btn-sm btn-danger" type="submit"><i class="fa fa-trash"></i></button>
+                                                    </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td class="text-center" colspan="12">No expense categories found.</td>
+                                            </tr>
+                                        @endforelse
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="12">
+                                                    <div class="float-right">
+                                                        {!! $expense_categories->appends(request()->all())->links() !!}
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
                                 </div>
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-        </div>
-   </div>
+                            </div>
+                    </div>
+                </div>
+             </div>
+         </div>
+     </div>
 @endsection
