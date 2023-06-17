@@ -8,7 +8,7 @@
                     {{ __('Expense categories') }}
                 </h6>
                 <div class="ml-auto">
-                    <a href="{{ route('admin.expense_categories.create') }}" class="btn btn-primary">
+                    <a href="{{ url ('admin.expense_categories.create') }}" class="btn btn-primary">
                         <span class="icon text-white-50">
                             <i class="fa fa-plus"></i>
                         </span>
@@ -29,7 +29,7 @@
                     @forelse($expense_categories as $expense_category)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td><a href="{{ route('admin.expense_categories.show', $expense_category) }}">{{ $expense_category->name }}</a></td>
+                            <td><a href="{{ url ('admin.expense_categories.show', $expense_category) }}">{{ $expense_category->name }}</a></td>
                             <td>
                                 <div class="btn-group btn-group-sm">
                                     <a href="{{ route('admin.expense_categories.edit', $expense_category) }}" class="btn btn-sm btn-primary">

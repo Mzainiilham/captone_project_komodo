@@ -49,10 +49,14 @@ Route::post('/ruangadmin', [RuangadminController::class, 'store' ]);
 
 Route::put('/ruangadmin/{id}', [RuangadminController::class, 'update']);
 
-Route::resource('expense_categories', \App\Http\Controllers\Admin\ExpenseCategoryController::class);
-    Route::resource('income_categories', \App\Http\Controllers\Admin\IncomeCategoryController::class);
-    Route::resource('expenses', \App\Http\Controllers\Admin\ExpenseController::class);
-    Route::resource('incomes', \App\Http\Controllers\Admin\IncomeController::class);
+Route::get('/expense_categories', [App\Http\Controllers\Admin\ExpenseCategoryController::class, 'create']);
+Route::get('/expense_categories', [App\Http\Controllers\Admin\ExpenseCategoryController::class, 'edit']);
+Route::get('/expense_categories', [App\Http\Controllers\Admin\ExpenseCategoryController::class, 'show']);
+Route::get('/expense_categories', [App\Http\Controllers\Admin\ExpenseCategoryController::class, 'index']);
+Route::get('/currencies', [App\Http\Controllers\Admin\CurrencyController::class, 'index']);
+Route::get('/income_categories', [App\Http\Controllers\Admin\IncomeCategoryController::class, 'index']);
+Route::get('/expenses', [App\Http\Controllers\Admin\ExpenseController::class, 'index']);
+Route::get('/incomes', [App\Http\Controllers\Admin\IncomeController::class, 'index']);
 
-    Route::resource('monthly_reports', \App\Http\Controllers\Admin\MontlyReportController::class);
+Route::get('monthly_reports', [App\Http\Controllers\Admin\MontlyReportController::class, 'index']);
 

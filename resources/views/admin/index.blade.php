@@ -140,6 +140,14 @@
                                     class="fa fa-bookmark-o"></i><span class="hide-menu"></span>Ruang Admin</a></li>
                         <li> <a class="waves-effect waves-dark" href="/ledingpage" aria-expanded="false"><i
                                     class="fa fa-bookmark-o"></i><span class="hide-menu"></span>Logout</a></li>
+                        <li> <a class="waves-effect waves-dark" href="/expense_categories" aria-expanded="false"><i
+                                    class="fa fa-bookmark-o"></i><span class="hide-menu"></span>Kategori Pengeluaran</a></li>
+                        <li> <a class="waves-effect waves-dark" href="/income_categories" aria-expanded="false"><i
+                                    class="fa fa-bookmark-o"></i><span class="hide-menu"></span>Kategori Pemasukan</a></li>
+                        <li> <a class="waves-effect waves-dark" href="/expenses" aria-expanded="false"><i
+                                    class="fa fa-bookmark-o"></i><span class="hide-menu"></span>Pengeluaran</a></li>
+                        <li> <a class="waves-effect waves-dark" href="/incomes" aria-expanded="false"><i
+                                    class="fa fa-bookmark-o"></i><span class="hide-menu"></span>Pemasukan</a></li>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
